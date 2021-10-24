@@ -2,27 +2,21 @@ from tkinter import *
 from math import *
 import time
 
+#Configurable values
+ball_radius = 10
+g = 9.81 #gravitational constant
+m1, m2 = 2, 2 #masses of balls
+len1, len2 = 150, 150 #length of rods
+
+#Other values
 width = 800
 height = 800
 w = 800
 h = height - 200
-len1 = 150
-len2 = 150
-ball_radius = 10
-l1_fixed_coords = [w/2,h/4]
 
+l1_fixed_coords = [w/2,h/4]
 canvas = None
-l1 = 0
-l2 = 0
-b1 = 0
-b2 = 0
-a1 = 0
-a2 = 0
-s1, s2 = 0, 0
-b = 0
-button2 = 0
-button3 = 0
-label = 0
+l1, l2, b1, b2, a1, a2, s1, s2, b, button2, button3, label = 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 
 #coords for the equilibrium position
 ball1_coords = []
@@ -115,9 +109,7 @@ def move(ball,ang):
         return
         
 ang1, ang2 = 0, 0
-g = 9.81
-m1, m2 = 2, 2
-a1,a2 = 0, 0
+a1, a2 = 0, 0
 v1, v2 = 0, 0
 
 stopp = False
@@ -182,10 +174,10 @@ def reset():
     v.set('0.00s')
     t = 0.00
     return
-    
-    
-initUI()
-app.title('Double Pendulum Simulator')
-app.geometry(str(width)+'x'+str(height))
-app.mainloop()
+
+if __name__ == '__main__':
+    initUI()
+    app.title('Double Pendulum Simulator')
+    app.geometry(str(width)+'x'+str(height))
+    app.mainloop()
 
